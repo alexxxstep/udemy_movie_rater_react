@@ -24,14 +24,21 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  movieClicked = movie => {
+    this.setState({ selectedMovie: movie });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Movie Rater</h1>
-          <div className='layout'>
-            <MovieList movies={this.state.movies} />
-            <MovieDetails movie={this.state.selectedMovie}/>
+          <div className="layout">
+            <MovieList
+              movies={this.state.movies}
+              movieClicked={this.movieClicked}
+            />
+            <MovieDetails movie={this.state.selectedMovie} />
           </div>
         </header>
       </div>

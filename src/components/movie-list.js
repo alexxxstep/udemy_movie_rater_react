@@ -2,12 +2,17 @@ import React from "react";
 
 const MovieList = (props) => {
   
+  const movieClicked = movie => evt => {
+    props.movieClicked(movie)
+
+  }
 
   return (
     <div>
       {props.movies.map(movie => {
         return (
-        <h3 key={movie.id}>{movie.title}</h3>
+        <h3 key={movie.id} onClick={movieClicked(movie)}>
+          {movie.title}</h3>
         )
       })}
     </div>   
