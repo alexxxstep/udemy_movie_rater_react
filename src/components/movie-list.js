@@ -15,16 +15,31 @@ const MovieList = props => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Token 26879ac5012d8777d187b74a5f4a5ea6986cee24"
+        "Authorization": `Token ${props.token}`
       }
     })
       .then(resp => props.movieDeleted(movie))
       .catch(error => console.log(error));
   };
 
-  const newMovie = () => {
-    props.newMovie()
+  // const getDetails = (movie) => {
+  //   fetch(
+  //     `${process.env.REACT_APP_API_URL}/api/movies/${movie.id}/`,
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: "Token 26879ac5012d8777d187b74a5f4a5ea6986cee24"
+  //       }
+  //     }
+  //   )
+  //     .then(resp => resp.json())
+  //     .then(res => props.editClicked(res))
+  //     .catch(error => console.log(error));
+  // };
 
+  const newMovie = () => {
+    props.newMovie();
   };
 
   return (
